@@ -38,7 +38,7 @@ orr<-ORR(Xtemp,Ytemp,1)
 oslog<-OSLOG(Xtemp,Ytemp,1)
 coirr<-COIRR(Xtemp,Ytemp,1)
 
-perfTemp<-data.frame(rbind(aar$performance,orr$performance,oslog$performance,coirr$performance))
+perfTemp<-data.frame(rbind(as.numeric(aar$performance),as.numeric(orr$performance),as.numeric(oslog$performance),as.numeric(coirr$performance)))
 
 rownames(perfTemp)<-c("aar","orr","oslog","coirr")
 print(perfTemp)
