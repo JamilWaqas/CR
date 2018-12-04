@@ -30,11 +30,11 @@ Xtemp<-cbind(X,pw,sp,hum,hum2)
 Ytemp<- as.matrix(as.numeric(data1[,4]))
 
 
-benchmarks(Xtemp,Ytemp)
-AAR(Xtemp,Ytemp,1)
-ORR(Xtemp,Ytemp,1)
-OSLOG(Xtemp,Ytemp,1)
-COIRR(Xtemp,Ytemp,1)
+print(benchmarks(Xtemp,Ytemp))
+print(AAR(Xtemp,Ytemp,1))
+print(ORR(Xtemp,Ytemp,1))
+print(OSLOG(Xtemp,Ytemp,1))
+print(COIRR(Xtemp,Ytemp,1))
 
 
 #NO2 Data
@@ -46,19 +46,19 @@ X<-data.frame(X)
 XNO2<-as.matrix(cbind(rep(1,500),X))
 YNO2<- as.matrix(data[,1])
 
-benchmarks(XNO2,YNO2)
-AAR(XNO2,YNO2,1)
-ORR(XNO2,YNO2,1)
-OSLOG(XNO2,YNO2,1)
-COIRR(XNO2,YNO2,1)
+print(benchmarks(XNO2,YNO2))
+print(AAR(XNO2,YNO2,1))
+print(ORR(XNO2,YNO2,1))
+print(OSLOG(XNO2,YNO2,1))
+print(COIRR(XNO2,YNO2,1))
 
 #ISE
 data<- ISE
 XISE<- as.matrix(data[,-c(1,3)])
 YISE<- as.matrix(data[,3])
 
-benchmarks(XISE,YISE)
-AAR(XISE,YISE,0.001953125)
-ORR(XISE,YISE,1.525879e-05)
-OSLOG(XISE,YISE,0.0001220703)
-COIRR(XISE,YISE,0.0009765625)
+print(benchmarks(XISE,YISE))
+print(AAR(XISE,YISE,0.001953125))
+print(ORR(XISE,YISE,1.525879e-05))
+print(OSLOG(XISE,YISE,0.0001220703))
+print(COIRR(XISE,YISE,0.0009765625))
