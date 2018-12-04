@@ -1,4 +1,4 @@
-install.packages("dvtools")
+install.packages("devtools")
 install_github("JamilWaqas/CR")
 install.packages("caret")
 install.packages("glmnet")
