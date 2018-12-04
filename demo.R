@@ -38,9 +38,9 @@ orr<-ORR(Xtemp,Ytemp,1)
 oslog<-OSLOG(Xtemp,Ytemp,1)
 coirr<-COIRR(Xtemp,Ytemp,1)
 
-perfTemp<-as.matrix(rbind(aar$performance,orr$performance,oslog$performance,coirr$performance))
+perfTemp<-data.frame(rbind(aar$performance,orr$performance,oslog$performance,coirr$performance))
 
-row.names(perfTemp)<-c("aar","orr","oslog","coirr")
+rownames(perfTemp)<-c("aar","orr","oslog","coirr")
 print(perfTemp)
 
 quantTemp<-as.matrix(rbind(aar$quantiles,orr$quantiles,oslog$quantiles,coirr$quantiles))
