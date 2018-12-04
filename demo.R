@@ -40,7 +40,7 @@ coirr<-COIRR(Xtemp,Ytemp,1)
 
 perfTemp<-as.matrix(rbind(aar$performance,orr$performance,oslog$performance,coirr$performance))
 
-row.names<-c("aar","orr","oslog","coirr")
+row.names(perfTemp)<-c("aar","orr","oslog","coirr")
 print(perfTemp)
 
 quantTemp<-as.matrix(rbind(aar$quantiles,orr$quantiles,oslog$quantiles,coirr$quantiles))
