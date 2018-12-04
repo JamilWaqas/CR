@@ -36,8 +36,10 @@ oslog<-OSLOG(Xtemp,Ytemp,1)
 coirr<-COIRR(Xtemp,Ytemp,1)
 perfTemp<-rbind(aar$performance,orr$performance,oslog$performance,coirr$performance)
 rownames(perf)<-c("aar","orr","oslog","coirr")
+print(perfTemp)
 quantTemp<-rbind(aar$quantiles,orr$quantiles,oslog$quantiles,coirr$quantiles)
 rownames(quantTemp)<-c("aar","orr","oslog","coirr")
+print(quantTemp)
 #NO2 Data
 data<- NO2
 data<- data[order(data[,8],data[,7]),]
@@ -54,8 +56,10 @@ oslogNO2<-OSLOG(XNO2,YNO2,1)
 coirrNO2<-COIRR(XNO2,YNO2,1)
 perfNO2<-rbind(aarNO2$performance,orrNO2$performance,oslogNO2$performance,coirrNO2$performance)
 rownames(perfNO2)<-c("aar","orr","oslog","coirr")
+print(perfNO2)
 quantNO2<-rbind(aarNO2$quantiles,orrNO2$quantiles,oslogNO2$quantiles,coirrNO2$quantiles)
 rownames(quantNO2)<-c("aar","orr","oslog","coirr")
+print(quantNO2)
 #ISE
 data<- ISE
 XISE<- as.matrix(data[,-c(1,3)])
@@ -69,6 +73,7 @@ oslogNO2<-OSLOG(XISE,YISE,0.0009765625)
 coirrNO2<-COIRR(XISE,YISE,1.525879e-05)
 perfISE<-rbind(aarISE$performance,orrISE$performance,oslogISE$performance,coirrISE$performance)
 rownames(perfISE)<-c("aar","orr","oslog","coirr")
+print(perfISE)
 quantISE<-rbind(aarNO2$quantiles,orrNO2$quantiles,oslogNO2$quantiles,coirrNO2$quantiles)
 rownames(quantISE)<-c("aar","orr","oslog","coirr")
-
+print(quantISE)
