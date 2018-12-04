@@ -28,20 +28,16 @@ hum<-exp(X[,1])
 hum2<-sin(X[,1])
 Xtemp<-cbind(X,pw,sp,hum,hum2)
 Ytemp<- as.matrix(as.numeric(data1[,4]))
-
-
 print(benchmarks(Xtemp,Ytemp)$performance)
 print(benchmarks(Xtemp,Ytemp)$quantiles)
-
-print(AAR(Xtemp,Ytemp,1)[[2]])
-print(ORR(Xtemp,Ytemp,1)[[3]])
-
-print(OSLOG(Xtemp,Ytemp,1)[[2]])
-print(OSLOG(Xtemp,Ytemp,1)[[3]])
-
-print(COIRR(Xtemp,Ytemp,1)[[2]])
-print(COIRR(Xtemp,Ytemp,1)[[3]])
-
+aar<-AAR(Xtemp,Ytemp,1)
+orr<-ORR(Xtemp,Ytemp,1)
+oslog<-OSLOG(Xtemp,Ytemp,1)
+coirr<-COIRR(Xtemp,Ytemp,1)
+perfTemp<-rbind(aar$performance,orr$performance,oslog$performance,coirr$performance)
+rownames(perf)<-c("aar","orr","oslog","coirr")
+quantTemp<-rbind(aar$quantiles,orr$quantiles,oslog$quantiles,coirr$quantiles)
+rownames(quantTemp)<-c("aar","orr","oslog","coirr")
 #NO2 Data
 data<- NO2
 data<- data[order(data[,8],data[,7]),]
@@ -50,37 +46,29 @@ X<- as.matrix(data[,-c(1)])
 X<-data.frame(X)
 XNO2<-as.matrix(cbind(rep(1,500),X))
 YNO2<- as.matrix(data[,1])
-
 print(benchmarks(XNO2,YNO2)$performance)
 print(benchmarks(XNO2,YNO2)$quantiles)
-
-print(AAR(XNO2,YNO2,1)[[2]])
-print(AAR(XNO2,YNO2,1)[[3]])
-
-print(ORR(XNO2,YNO2,1)[[2]])
-print(ORR(XNO2,YNO2,1)[[3]])
-
-print(OSLOG(XNO2,YNO2,1)[[2]])
-print(OSLOG(XNO2,YNO2,1)[[3]])
-
-print(COIRR(XNO2,YNO2,1)[[2]])
-print(COIRR(XNO2,YNO2,1)[[3]])
+aarNO2<-AAR(XNO2,YNO2,1)
+orrNO2<-ORR(XNO2,YNO2,1)
+oslogNO2<-OSLOG(XNO2,YNO2,1)
+coirrNO2<-COIRR(XNO2,YNO2,1)
+perfNO2<-rbind(aarNO2$performance,orrNO2$performance,oslogNO2$performance,coirrNO2$performance)
+rownames(perfNO2)<-c("aar","orr","oslog","coirr")
+quantNO2<-rbind(aarNO2$quantiles,orrNO2$quantiles,oslogNO2$quantiles,coirrNO2$quantiles)
+rownames(quantNO2)<-c("aar","orr","oslog","coirr")
 #ISE
 data<- ISE
 XISE<- as.matrix(data[,-c(1,3)])
 YISE<- as.matrix(data[,3])
 
-print(benchmarks(XISE,YISE)[[2]])
-print(benchmarks(XISE,YISE)[[3]])
+print(benchmarks(XISE,YISE)$performance)
+print(benchmarks(XISE,YISE)$quantiles)
+aarISE<-AAR(XISE,YISE,0.001953125)
+orrNO2<-ORR(XISE,YISE,0.0001220703)
+oslogNO2<-OSLOG(XISE,YISE,0.0009765625)
+coirrNO2<-COIRR(XISE,YISE,1.525879e-05)
+perfISE<-rbind(aarISE$performance,orrISE$performance,oslogISE$performance,coirrISE$performance)
+rownames(perfISE)<-c("aar","orr","oslog","coirr")
+quantISE<-rbind(aarNO2$quantiles,orrNO2$quantiles,oslogNO2$quantiles,coirrNO2$quantiles)
+rownames(quantISE)<-c("aar","orr","oslog","coirr")
 
-print(AAR(XISE,YISE,0.001953125)[[2]])
-print(AAR(XISE,YISE,0.001953125)[[3]])
-
-print(ORR(XISE,YISE,0.0001220703)[[2]])
-print(ORR(XISE,YISE,0.0001220703)[[3]])
-
-print(COIRR(XISE,YISE,0.0009765625)[[2]])
-print(COIRR(XISE,YISE,0.0009765625)[[3]])
-
-print(OSLOG(XISE,YISE,1.525879e-05)[[2]])
-print(OSLOG(XISE,YISE,1.525879e-05)[[3]])
