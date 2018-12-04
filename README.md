@@ -1,4 +1,4 @@
-#The package contains following functions:
+The package contains following functions:
 
 1) AAR
 
