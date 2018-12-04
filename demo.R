@@ -4,14 +4,17 @@ install_github("JamilWaqas/CR")
 install.packages("caret")
 install.packages("glmnet")
 install.packages("microbenchmark")
+
 library(CR)
 library(MASS)
 library(glmnet)
 library(caret)
 library(microbenchmark)
+
 data("Temp", package="CR")
 data("NO2", package="CR")
 data("ISE", package="CR")
+
 data1<-Temp
 data<- as.matrix(data1[,-c(1,4)])
 X<- as.matrix(data[,-c(3)])
@@ -34,10 +37,14 @@ aar<-AAR(Xtemp,Ytemp,1)
 orr<-ORR(Xtemp,Ytemp,1)
 oslog<-OSLOG(Xtemp,Ytemp,1)
 coirr<-COIRR(Xtemp,Ytemp,1)
+
 perfTemp<-as.matrix(rbind(aar$performance,orr$performance,oslog$performance,coirr$performance))
+
 rownames(perfTemp)<-c("aar","orr","oslog","coirr")
 print(perfTemp)
+
 quantTemp<-as.matrix(rbind(aar$quantiles,orr$quantiles,oslog$quantiles,coirr$quantiles))
+
 rownames(quantTemp)<-c("aar","orr","oslog","coirr")
 print(quantTemp)
 #NO2 Data
@@ -50,14 +57,20 @@ XNO2<-as.matrix(cbind(rep(1,500),X))
 YNO2<- as.matrix(data[,1])
 print(benchmarks(XNO2,YNO2)$performance)
 print(benchmarks(XNO2,YNO2)$quantiles)
+
 aarNO2<-AAR(XNO2,YNO2,1)
 orrNO2<-ORR(XNO2,YNO2,1)
 oslogNO2<-OSLOG(XNO2,YNO2,1)
 coirrNO2<-COIRR(XNO2,YNO2,1)
+
 perfNO2<-as.matrix(rbind(aarNO2$performance,orrNO2$performance,oslogNO2$performance,coirrNO2$performance))
+
 rownames(perfNO2)<-c("aar","orr","oslog","coirr")
+
 print(perfNO2)
+
 quantNO2<-as.matrix(rbind(aarNO2$quantiles,orrNO2$quantiles,oslogNO2$quantiles,coirrNO2$quantiles))
+
 rownames(quantNO2)<-c("aar","orr","oslog","coirr")
 print(quantNO2)
 #ISE
@@ -71,9 +84,13 @@ aarISE<-AAR(XISE,YISE,0.001953125)
 orrISE<-ORR(XISE,YISE,0.0001220703)
 oslogISE<-OSLOG(XISE,YISE,0.0009765625)
 coirrISE<-COIRR(XISE,YISE,1.525879e-05)
+
 perfISE<-as.matrix(rbind(aarISE$performance,orrISE$performance,oslogISE$performance,coirrISE$performance))
+
 rownames(perfISE)<-c("aar","orr","oslog","coirr")
 print(perfISE)
+
 quantISE<-as.matrix(rbind(aarISE$quantiles,orrISE$quantiles,oslogISE$quantiles,coirrISE$quantiles))
+
 rownames(quantISE)<-c("aar","orr","oslog","coirr")
 print(quantISE)
