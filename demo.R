@@ -8,7 +8,7 @@ library(CR)
 
 load('Temp.rdata')
 load('ISE.rdata')
-load('NO2.Rdata')
+load('NO2.rdata')
 data1<-Temp
 data<- as.matrix(data1[,-c(1,4)])
 X<- as.matrix(data[,-c(3)])
