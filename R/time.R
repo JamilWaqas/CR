@@ -1,7 +1,6 @@
-library(microbenchmark)
 #' time
 #'
-#' @param This functions takes input data, labels and scalar a>0.
+#' @param This functions takes input data, labels and scalar a>0. Use of function require 'microbenchmark'
 #' @return time statistics taken for AAR, ORR, OSLOG and COIRR.
 #' @export
 #' @examples
