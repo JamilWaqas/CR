@@ -6,9 +6,9 @@ install.packages("glmnet")
 install.packages("microbenchmark")
 library(CR)
 
-data(Temp)
-data(ISE)
-data(NO2)
+load('Temp.rdata')
+load('ISE.rdata')
+load('NO2.Rdata')
 data1<-Temp
 data<- as.matrix(data1[,-c(1,4)])
 X<- as.matrix(data[,-c(3)])
