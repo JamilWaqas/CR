@@ -33,14 +33,14 @@ Ytemp<- as.matrix(as.numeric(data1[,4]))
 print(benchmarks(Xtemp,Ytemp)$performance)
 print(benchmarks(Xtemp,Ytemp)$quantiles)
 
-print(AAR(Xtemp,Ytemp,1)$performance)
-print(ORR(Xtemp,Ytemp,1)$quantiles)
+print(AAR(Xtemp,Ytemp,1)[[2]])
+print(ORR(Xtemp,Ytemp,1)[[3]])
 
-print(OSLOG(Xtemp,Ytemp,1)$performance)
-print(OSLOG(Xtemp,Ytemp,1)$quantiles)
+print(OSLOG(Xtemp,Ytemp,1)[[2]])
+print(OSLOG(Xtemp,Ytemp,1)[[3]])
 
-print(COIRR(Xtemp,Ytemp,1)$performance)
-print(COIRR(Xtemp,Ytemp,1)$quantiles)
+print(COIRR(Xtemp,Ytemp,1)[[2]])
+print(COIRR(Xtemp,Ytemp,1)[[3]])
 
 #NO2 Data
 data<- NO2
@@ -54,34 +54,33 @@ YNO2<- as.matrix(data[,1])
 print(benchmarks(XNO2,YNO2)$performance)
 print(benchmarks(XNO2,YNO2)$quantiles)
 
-print(AAR(XNO2,YNO2,1)$performance)
-print(AAR(XNO2,YNO2,1)$quantiles)
+print(AAR(XNO2,YNO2,1)[[2]])
+print(AAR(XNO2,YNO2,1)[[3]])
 
-print(ORR(XNO2,YNO2,1)$performance)
-print(ORR(XNO2,YNO2,1)$quantiles)
+print(ORR(XNO2,YNO2,1)[[2]])
+print(ORR(XNO2,YNO2,1)[[3]])
 
-print(OSLOG(XNO2,YNO2,1)$performance)
-print(OSLOG(XNO2,YNO2,1)$quantiles)
+print(OSLOG(XNO2,YNO2,1)[[2]])
+print(OSLOG(XNO2,YNO2,1)[[3]])
 
-print(COIRR(XNO2,YNO2,1)$performance)
-print(COIRR(XNO2,YNO2,1)$quantiles)
+print(COIRR(XNO2,YNO2,1)[[2]])
+print(COIRR(XNO2,YNO2,1)[[3]])
 #ISE
 data<- ISE
 XISE<- as.matrix(data[,-c(1,3)])
 YISE<- as.matrix(data[,3])
 
-print(benchmarks(XISE,YISE)$performance)
-print(benchmarks(XISE,YISE)$quantiles)
+print(benchmarks(XISE,YISE)[[2]])
+print(benchmarks(XISE,YISE)[[3]])
 
-print(AAR(XISE,YISE,0.001953125)$performance)
-print(AAR(XISE,YISE,0.001953125)$quantiles)
+print(AAR(XISE,YISE,0.001953125)[[2]])
+print(AAR(XISE,YISE,0.001953125)[[3]])
 
-print(ORR(XISE,YISE,0.0001220703)$performance)
-print(ORR(XISE,YISE,0.0001220703)$quantiles)
+print(ORR(XISE,YISE,0.0001220703)[[2]])
+print(ORR(XISE,YISE,0.0001220703)[[3]])
 
-print(COIRR(XISE,YISE,0.0009765625)$performance)
-print(COIRR(XISE,YISE,0.0009765625)$quantiles)
+print(COIRR(XISE,YISE,0.0009765625)[[2]])
+print(COIRR(XISE,YISE,0.0009765625)[[3]])
 
-print(OSLOG(XISE,YISE,1.525879e-05)$performance)
-print(OSLOG(XISE,YISE,1.525879e-05)$quantiles)
-
+print(OSLOG(XISE,YISE,1.525879e-05)[[2]])
+print(OSLOG(XISE,YISE,1.525879e-05)[[3]])
