@@ -1,4 +1,3 @@
-
 #' ORR
 #'
 #' @param This functions takes input data, labels and scalar a>0.
