@@ -1,9 +1,6 @@
-library(caret)
-library(glmnet)
-
 #' benchmarks
 #'
-#' @param This functions takes input data and labels.
+#' @param This functions takes input data and labels. Use of function requires 'glmnet' and 'caret' package.
 #' @return predictions, RMSE, MAD, and quantiles of lm, ee and lasso.
 #' @export
 #' @examples
