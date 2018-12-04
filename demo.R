@@ -1,4 +1,5 @@
 install.packages("devtools")
+library(devtools)
 install_github("JamilWaqas/CR")
 install.packages("caret")
 install.packages("glmnet")
