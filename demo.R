@@ -1,9 +1,9 @@
-install.packages("devtools")
+{r install-more-packages-1, eval = F}
+install.packages("devtools", repos = 'https://cran.us.r-project.org')
 library(devtools)
 install_github("JamilWaqas/CR")
-install.packages("caret")
-install.packages("glmnet")
-install.packages("microbenchmark")
+{r install-more-packages-2, eval = F}
+install.packages(c("caret", "glmnet", "microbenchmark","MASS"))
 
 library(CR)
 library(MASS)
