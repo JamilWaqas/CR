@@ -1,13 +1,13 @@
-install.packages("devtools")
-library(devtools)
-install_github("JamilWaqas/CR")
-install.packages(c("caret", "glmnet", "microbenchmark","MASS"))
+# install.packages("devtools")
+# library(devtools)
+# install_github("JamilWaqas/CR")
+# install.packages(c("caret", "glmnet", "microbenchmark","MASS"))
 
-library(CR)
-library(MASS)
-library(glmnet)
-library(caret)
-library(microbenchmark)
+# library(CR)
+# library(MASS)
+# library(glmnet)
+# library(caret)
+# library(microbenchmark)
 
 
 #Simulation
@@ -24,12 +24,11 @@ y <-  x %*% w  + eps
 Y<- y
 X<- x
 
-
-print(benchmarks(X,Y)$performance)
-print(AAR(X,Y,1)$performance)
-print(ORR(X,Y,1)$performance)
-print(COIRR(X,Y,1)$performance)
-print(OSLOG(X,Y,1)$performance)
+print(CR::benchmarks(X,Y)$performance)
+print(CR::AAR(X,Y,1)$performance)
+print(CR::ORR(X,Y,1)$performance)
+print(CR::COIRR(X,Y,1)$performance)
+print(CR::OSLOG(X,Y,1)$performance)
 
 
 #Effect of range of Y
@@ -79,11 +78,12 @@ y <-  x %*% w  + eps
 Y<- y
 X<-x
 
-print(benchmarks(X,Y)$performance)
-print(AAR(X,Y,1)$performance)
-print(ORR(X,Y,1)$performance)
-print(COIRR(X,Y,1)$performance)
-print(OSLOG(X,Y,1)$performance)
+print(CR::benchmarks(X,Y)$performance)
+print(CR::AAR(X,Y,1)$performance)
+print(CR::ORR(X,Y,1)$performance)
+print(CR::COIRR(X,Y,1)$performance)
+print(CR::OSLOG(X,Y,1)$performance)
+
 
 data("Temp", package="CR")
 data("NO2", package="CR")
@@ -105,12 +105,12 @@ hum<-exp(X[,1])
 hum2<-sin(X[,1])
 Xtemp<-cbind(X,pw,sp,hum,hum2)
 Ytemp<- as.matrix(as.numeric(data1[,4]))
-print(benchmarks(Xtemp,Ytemp)$performance)
-print(benchmarks(Xtemp,Ytemp)$quantiles)
-aar<-AAR(Xtemp,Ytemp,1)
-orr<-ORR(Xtemp,Ytemp,1)
-oslog<-OSLOG(Xtemp,Ytemp,1)
-coirr<-COIRR(Xtemp,Ytemp,1)
+print(CR::benchmarks(Xtemp,Ytemp)$performance)
+print(CR::benchmarks(Xtemp,Ytemp)$quantiles)
+aar<-CR::AAR(Xtemp,Ytemp,1)
+orr<-CR::ORR(Xtemp,Ytemp,1)
+oslog<-CR::OSLOG(Xtemp,Ytemp,1)
+coirr<-CR::COIRR(Xtemp,Ytemp,1)
 
 perfTemp<-as.matrix(rbind(aar$performance,orr$performance,oslog$performance,coirr$performance))
 perfTemp<-cbind(perfTemp[,1],(perfTemp[,2]))
@@ -130,13 +130,13 @@ X<- as.matrix(data[,-c(1)])
 X<-data.frame(X)
 XNO2<-as.matrix(cbind(rep(1,500),X))
 YNO2<- as.matrix(data[,1])
-print(benchmarks(XNO2,YNO2)$performance)
-print(benchmarks(XNO2,YNO2)$quantiles)
+print(CR::benchmarks(XNO2,YNO2)$performance)
+print(CR::benchmarks(XNO2,YNO2)$quantiles)
 
-aarNO2<-AAR(XNO2,YNO2,1)
-orrNO2<-ORR(XNO2,YNO2,1)
-oslogNO2<-OSLOG(XNO2,YNO2,1)
-coirrNO2<-COIRR(XNO2,YNO2,1)
+aarNO2<-CR::AAR(XNO2,YNO2,1)
+orrNO2<-CR::ORR(XNO2,YNO2,1)
+oslogNO2<-CR::OSLOG(XNO2,YNO2,1)
+coirrNO2<-CR::COIRR(XNO2,YNO2,1)
 
 perfNO2<-as.matrix(rbind(aarNO2$performance,orrNO2$performance,oslogNO2$performance,coirrNO2$performance))
 perfNO2<-cbind(perfNO2[,1],(perfNO2[,2]))
@@ -155,10 +155,10 @@ YISE<- as.matrix(data[,3])
 
 print(benchmarks(XISE,YISE)$performance)
 print(benchmarks(XISE,YISE)$quantiles)
-aarISE<-AAR(XISE,YISE,0.001953125)
-orrISE<-ORR(XISE,YISE,0.0001220703)
-oslogISE<-OSLOG(XISE,YISE,0.0009765625)
-coirrISE<-COIRR(XISE,YISE,1.525879e-05)
+aarISE<-CR::AAR(XISE,YISE,0.001953125)
+orrISE<-CR::ORR(XISE,YISE,0.0001220703)
+oslogISE<-CR::OSLOG(XISE,YISE,0.0009765625)
+coirrISE<-CR::COIRR(XISE,YISE,1.525879e-05)
 
 perfISE<-as.matrix(rbind(aarISE$performance,orrISE$performance,oslogISE$performance,coirrISE$performance))
 perfISE<-cbind(perfISE[,1],(perfISE[,2]))
@@ -173,4 +173,3 @@ print(quantISE)
 
 print(CR::time(Xtemp,Ytemp,1))
 print(CR::time(XNO2,YNO2,1))
-
