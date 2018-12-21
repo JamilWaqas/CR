@@ -9,6 +9,6 @@
 #' time(X,Y,a=1)
 
 time<- function(X,Y,a){
-mbm<-microbenchmark(AAR = AAR(X,Y,a),ORR=ORR(X,Y,a),OSLOG=SLOG(X,Y,a),COIRR=COIRR(X,Y,a))
+mbm<-microbenchmark(AAR = AAR(X,Y,a),ORR=ORR(X,Y,a),OSLOG=OSLOG(X,Y,a),COIRR=COIRR(X,Y,a))
 return(mbm)
 }
