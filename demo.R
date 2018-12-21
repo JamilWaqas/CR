@@ -11,6 +11,82 @@ library(glmnet)
 library(caret)
 library(microbenchmark)
 
+
+#Simulation
+set.seed(123)
+mu <- runif(100,0,1)
+Sigma <- matrix(.7, nrow=100, ncol=100) + diag(100)*.3
+x <- mvrnorm(n=10000, mu=mu, Sigma=Sigma)
+w<-c(runif(99,0,3),2.5)
+sigma <- 0.4
+eps <- rnorm(10000,0,1)
+for(i in 2:10000) eps[i] <- 0.15 * eps[i-1] + sqrt(1-0.15^2)*eps[i]
+eps <- sigma * eps
+y <-  x %*% w  + eps
+Y<- y
+X<- x
+
+
+print(benchmarks(X,Y)$performance)
+print(AAR(X,Y,1)$performance)
+print(ORR(X,Y,1)$performance)
+print(COIRR(X,Y,1)$performance)
+print(OSLOG(X,Y,1)$performance)
+
+
+#Effect of range of Y
+
+mu <- runif(100,0,1)
+Sigma <- matrix(.7, nrow=100, ncol=100) + diag(100)*.3
+x <- mvrnorm(n=10000, mu=mu, Sigma=Sigma)
+w<-c(runif(99,0,3),2.5)
+sigma <- 0.4
+eps <- rnorm(10000,0,1)
+for(i in 2:10000) eps[i] <- 0.15 * eps[i-1] + sqrt(1-0.15^2)*eps[i]
+eps <- sigma * eps
+y <- scale(x %*% w)  + eps
+Y<- y
+X<-x
+
+print(benchmarks(X,Y)$performance)
+print(AAR(X,Y,1)$performance)
+print(ORR(X,Y,1)$performance)
+print(COIRR(X,Y,1)$performance)
+print(OSLOG(X,Y,1)$performance)
+
+
+#Effect of outlier
+
+X[5000,100]<-737377
+
+print(benchmarks(X,Y)$performance)
+print(AAR(X,Y,1)$performance)
+print(ORR(X,Y,1)$performance)
+print(COIRR(X,Y,1)$performance)
+print(OSLOG(X,Y,1)$performance)
+
+
+#Effect of shrinkage
+
+set.seed(123)
+mu <- runif(100,0,1)
+Sigma <- matrix(.7, nrow=100, ncol=100) + diag(100)*.3
+x <- mvrnorm(n=10000, mu=mu, Sigma=Sigma)
+w<-c(runif(98,0,0.0),3.5,2.5)
+sigma <- 0.4
+eps <- rnorm(10000,0,1)
+for(i in 2:10000) eps[i] <- 0.15 * eps[i-1] + sqrt(1-0.15^2)*eps[i]
+eps <- sigma * eps
+y <-  x %*% w  + eps
+Y<- y
+X<-x
+
+print(benchmarks(X,Y)$performance)
+print(AAR(X,Y,1)$performance)
+print(ORR(X,Y,1)$performance)
+print(COIRR(X,Y,1)$performance)
+print(OSLOG(X,Y,1)$performance)
+
 data("Temp", package="CR")
 data("NO2", package="CR")
 data("ISE", package="CR")
@@ -45,8 +121,7 @@ rownames(perfTemp)<-c("aar","orr","oslog","coirr")
 print(perfTemp)
 
 quantTemp<-as.matrix(rbind(aar$quantiles,orr$quantiles,oslog$quantiles,coirr$quantiles))
-quantTemp<-cbind(quantTemp[,1],(quantTemp[,2]))
-colnames(quantTemp)<-c("RMSE","MAE")
+colnames(quantTemp)<-c("25%","50%","75%")
 rownames(quantTemp)<-c("aar","orr","oslog","coirr")
 print(quantTemp)
 #NO2 Data
@@ -72,8 +147,7 @@ rownames(perfNO2)<-c("aar","orr","oslog","coirr")
 print(perfNO2)
 
 quantNO2<-as.matrix(rbind(aarNO2$quantiles,orrNO2$quantiles,oslogNO2$quantiles,coirrNO2$quantiles))
-quantNO2<-cbind(quantNO2[,1],(quantNO2[,2]))
-colnames(quantNO2)<-c("RMSE","MAE")
+colnames(quantNO2)<-c("25%","50%","75%")
 rownames(quantNO2)<-c("aar","orr","oslog","coirr")
 print(quantNO2)
 #ISE
@@ -95,7 +169,10 @@ rownames(perfISE)<-c("aar","orr","oslog","coirr")
 print(perfISE)
 
 quantISE<-as.matrix(rbind(aarISE$quantiles,orrISE$quantiles,oslogISE$quantiles,coirrISE$quantiles))
-quantISE<-cbind(quantISE[,1],(quantISE[,2]))
-colnames(quantISE)<-c("RMSE","MAE")
+colnames(quantISE)<-c("25%","50%","75%")
 rownames(quantISE)<-c("aar","orr","oslog","coirr")
 print(quantISE)
+
+print(CR::time(Xtemp,Ytemp,1))
+print(CR::time(XNO2,YNO2,1))
+
