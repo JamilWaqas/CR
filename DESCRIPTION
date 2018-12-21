@@ -1,10 +1,10 @@
 Package: CR
-Title: What the Package Does (one line, title case)
+Title: Competitive Regression
 Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: The packages contains competive regression algorithms. These algorithms make online predictions.
+Authors@R: person("Waqas", "Jamil", email = "dr.wjamil@gmail.com", role = c("aut", "cre"))
+Description: The packages contains competitive regression algorithms. These algorithms make online predictions.
 Depends: R (>= 3.4.3)
-License: What license is it under?
+License: Academic use
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
