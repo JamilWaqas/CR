@@ -56,11 +56,11 @@ print(OSLOG(X,Y,1)$performance)
 
 X[5000,100]<-737377
 
-print(benchmarks(X,Y)$performance)
-print(AAR(X,Y,1)$performance)
-print(ORR(X,Y,1)$performance)
-print(COIRR(X,Y,1)$performance)
-print(OSLOG(X,Y,1)$performance)
+print(CR::benchmarks(X,Y)$performance)
+print(CR::AAR(X,Y,1)$performance)
+print(CR::ORR(X,Y,1)$performance)
+print(CR::COIRR(X,Y,1)$performance)
+print(CR::OSLOG(X,Y,1)$performance)
 
 
 #Effect of shrinkage
