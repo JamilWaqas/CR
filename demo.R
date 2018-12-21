@@ -1,4 +1,4 @@
-install.packages("devtools", repos = 'https://cran.us.r-project.org')
+install.packages("devtools")
 library(devtools)
 install_github("JamilWaqas/CR")
 install.packages(c("caret", "glmnet", "microbenchmark","MASS"))
