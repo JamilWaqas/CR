@@ -1,8 +1,6 @@
-{r install-more-packages-1, eval = F}
 install.packages("devtools", repos = 'https://cran.us.r-project.org')
 library(devtools)
 install_github("JamilWaqas/CR")
-{r install-more-packages-2, eval = F}
 install.packages(c("caret", "glmnet", "microbenchmark","MASS"))
 
 library(CR)
