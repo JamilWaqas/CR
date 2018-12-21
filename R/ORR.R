@@ -20,15 +20,14 @@ ORR<- function(X,Y,a){
     At<-a * diag(1, N)
     pred<-matrix(0,ncol=1,nrow=T)
     for(t in 1:T){
-      pred[t,]<-  t(bt)%*%chol2inv(chol((At)))%*%X[t,]
-      At<- At + (X[t,] %*% t(X[t,]))
+      pred[t,]<-  tcrossprod(X[t,],crossprod(bt,chol2inv(chol((At)))))
+      At<- At + tcrossprod(X[t,],X[t,])
       bt<- bt + as.numeric(Y[t,]*X[t,])
     }
     res<-postResample(pred = pred, obs = Y)
     stats<- as.matrix(res)[c(1,3),]
     quant<-quantile(Y-pred,probs=c(.25,.50,.75))
-
+    
     return(list(predictions=pred,performance=stats,quantiles=quant))
   }
 }
-
