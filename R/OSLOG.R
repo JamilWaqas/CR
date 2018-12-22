@@ -25,7 +25,7 @@ OSLOG<-function(X,Y,a){
       pred[t] <- crossprod(as.matrix(theta0), X[t,])
       Dt <- diag(sqrt(abs(c(theta0))))
       At <- At + tcrossprod(X[t,],X[t,])
-      InvA <-  chol2inv(chol(a*diag(N) + outer(diag(Dt),diag(Dt)) * At))
+      InvA <-  chol2inv(chol(diag(a,N) + outer(diag(Dt),diag(Dt)) * At))
       AAt<- outer(diag(Dt),diag(Dt)) * InvA 
       bt <- bt + (Y[t] * X[t,])
       theta0 <- crossprod(AAt,bt) 
