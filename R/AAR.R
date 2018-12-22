@@ -17,7 +17,7 @@ AAR<- function(X,Y,a){
     N<- ncol(X)
     T<- nrow(X)
     bt<-matrix(0,ncol=1,nrow=N)
-    At<-a * diag(1, N)
+    At<-diag(a, N)
     pred<-matrix(0,ncol=1,nrow=T)
     for(t in 1:T){
       At<- At + tcrossprod(X[t,],X[t,])
