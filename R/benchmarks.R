@@ -30,7 +30,7 @@ benchmarks<-function(X,Y){
   rr<-postResample(pred = pred$rr, obs = Y)
   lasso<-postResample(pred = pred$lasso, obs = Y)
 
-  stats<- as.matrix(rbind(lm,rr,lasso))[,c(1,3)]
+  stats<- as.matrix(rbind(lm,rr,lasso))
   rownames(stats)<-c("lm","rr","lasso")
 
   qlm<-quantile(Y-pred$lm,probs=c(.25,.50,.75))
