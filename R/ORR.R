@@ -25,7 +25,7 @@ ORR<- function(X,Y,a){
       bt<- bt + as.numeric(Y[t,]*X[t,])
     }
     res<-postResample(pred = pred, obs = Y)
-    stats<- as.matrix(res)[c(1,3),]
+    stats<- as.matrix(res)
     quant<-quantile(Y-pred,probs=c(.25,.50,.75))
     
     return(list(predictions=pred,performance=stats,quantiles=quant))
