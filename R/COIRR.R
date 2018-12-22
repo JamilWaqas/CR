@@ -22,9 +22,10 @@ COIRR<-function(X,Y,a){
     theta0<- rep(1,N)
     for (t in 1:T){
       Dt <- diag(sqrt(abs(c(theta0))))
+      D <- outer(diag(Dt),diag(Dt)) 
       At <- At + tcrossprod(X[t,],X[t,])
-      InvA <-  chol2inv(chol(diag(a,N) + outer(diag(Dt),diag(Dt)) * At))
-      AAt<- outer(diag(Dt),diag(Dt)) * InvA 
+      InvA <-  chol2inv(chol(diag(a,N) + D * At))
+      AAt<- D * InvA 
       theta0<- crossprod(AAt,bt) 
       pred[t] <- crossprod(as.matrix(theta0), X[t,])
       bt <- bt + (Y[t] * X[t,])
