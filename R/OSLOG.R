@@ -22,13 +22,14 @@ OSLOG<-function(X,Y,a){
     pred<- matrix(0,nrow=T,ncol=1)
     theta0<- rep(1,N)
     for (t in 1:T){
-      pred[t] <- crossprod(as.matrix(theta0), X[t,])
+      xt<-X[t,]
+      pred[t] <- crossprod(as.matrix(theta0), xt)
       Dt <- diag(sqrt(abs(c(theta0))))
       D <- outer(diag(Dt),diag(Dt))
-      At <- At + tcrossprod(X[t,],X[t,])
+      At <- At + tcrossprod(xt,xt)
       InvA <-  chol2inv(chol(diag(a,N) + D * At))
       AAt<- D * InvA 
-      bt <- bt + (Y[t] * X[t,])
+      bt <- bt + (Y[t] * xt)
       theta0 <- crossprod(AAt,bt) 
     }
     res<-postResample(pred = pred, obs = Y)
