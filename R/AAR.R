@@ -20,9 +20,10 @@ AAR<- function(X,Y,a){
     At<-diag(a, N)
     pred<-matrix(0,ncol=1,nrow=T)
     for(t in 1:T){
-      At<- At + tcrossprod(X[t,],X[t,])
-      pred[t,]<-  tcrossprod(X[t,],crossprod(bt,chol2inv(chol((At)))))
-      bt<- bt + as.numeric(Y[t,]*X[t,])
+      xt<-X[t,]
+      At<- At + tcrossprod(xt,xt)
+      pred[t,]<-tcrossprod(xt,crossprod(bt,chol2inv(chol((At)))))
+      bt<- bt + as.numeric(Y[t,]*xt)
     }
     res<-postResample(pred = pred, obs = Y)
     stats<- as.matrix(res)
