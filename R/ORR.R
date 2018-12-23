@@ -20,9 +20,10 @@ ORR<- function(X,Y,a){
     At<-diag(a, N)
     pred<-matrix(0,ncol=1,nrow=T)
     for(t in 1:T){
-      pred[t,]<-  tcrossprod(X[t,],crossprod(bt,chol2inv(chol((At)))))
-      At<- At + tcrossprod(X[t,],X[t,])
-      bt<- bt + as.numeric(Y[t,]*X[t,])
+      xt<-X[t,]
+      pred[t,]<- tcrossprod(X[t,],crossprod(bt,chol2inv(chol((At)))))
+      At<- At + tcrossprod(xt,xt)
+      bt<- bt + as.numeric(Y[t,]* xt)
     }
     res<-postResample(pred = pred, obs = Y)
     stats<- as.matrix(res)
