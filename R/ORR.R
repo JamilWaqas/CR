@@ -21,7 +21,7 @@ ORR<- function(X,Y,a){
     pred<-matrix(0,ncol=1,nrow=T)
     for(t in 1:T){
       xt<-X[t,]
-      pred[t,]<- tcrossprod(X[t,],crossprod(bt,chol2inv(chol((At)))))
+      pred[t,]<- tcrossprod(xt,crossprod(bt,chol2inv(chol((At)))))
       At<- At + tcrossprod(xt,xt)
       bt<- bt + as.numeric(Y[t,]* xt)
     }
