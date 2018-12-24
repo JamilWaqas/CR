@@ -17,13 +17,14 @@ ORR<- function(X,Y,a){
     N<- ncol(X)
     T<- nrow(X)
     bt<-matrix(0,ncol=1,nrow=N)
-    At<-diag(a, N)
+    At<-diag(1/a, N)
     pred<-matrix(0,ncol=1,nrow=T)
     for(t in 1:T){
       xt<-X[t,]
-      pred[t,]<- tcrossprod(xt,crossprod(bt,chol2inv(chol((At)))))
+      pred[t,]<- tcrossprod(crossprod(bt,At),xt)
       At<- At + tcrossprod(xt,xt)
-      bt<- bt + as.numeric(Y[t,]* xt)
+      At<- At - (tcrossprod(crossprod(At,xt),crossprod(At,xt)) / as.numeric(crossprod(xt,crossprod(At,xt))+1))
+      bt<- bt + (Y[t,]*xt)
     }
     res<-postResample(pred = pred, obs = Y)
     stats<- as.matrix(res)
