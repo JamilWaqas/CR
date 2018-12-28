@@ -16,7 +16,7 @@
 #' Ytest<- as.matrix(test[,1])
 #' tuneOSLOG(0.1,0.2,0.01,Xtrain,Ytrain)
 
-tuneOSLOG<-function(from,to,by,Xtrain,Ytrain,b){
+tuneOSLOG<-function(from,to,by,Xtrain,Ytrain,b=1){
   a <- seq(from,to,by)
   res<-matrix(0,ncol=1,nrow=length(a))
   pb <- txtProgressBar(min = 0, max = length(a), style = 3)
