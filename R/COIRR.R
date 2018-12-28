@@ -6,10 +6,10 @@
 #' @examples
 #' X<-matrix(rexp(200, rate=.1), ncol=20)
 #' Y<-rnorm(10)
-#' COIRR(X,Y,a=1)
+#' COIRR(X,Y,a=1,1)
 
 COIRR<-function(X,Y,a){
-  if(a<=0){
+  if(a|b<=0){
     print("a must be a positive number")
   }else{
     X<-as.matrix(X)
@@ -19,7 +19,7 @@ COIRR<-function(X,Y,a){
     bt<- matrix(0,ncol=1,nrow=N)
     At<- diag(0,N)
     pred<- matrix(0,nrow=T,ncol=1)
-    theta0<- matrix(1,nrow=1,ncol=N)
+    theta0<- matrix(b,nrow=1,ncol=N)
     for (t in 1:T){
       xt<-X[t,]
       Dt <- diag(sqrt(abs(c(theta0))))
