@@ -36,6 +36,6 @@ OSLOG<-function(X,Y,a,b){
     stats<- as.matrix(res)
     quant<-quantile(as.matrix(Y)-as.matrix(pred),probs=c(.25,.50,.75))
     
-    return(list(predictions=pred,performance=stats,quantiles=quant))
+    return(list(Weights=theta0,predictions=pred,performance=stats,quantiles=quant))
   }
 }
