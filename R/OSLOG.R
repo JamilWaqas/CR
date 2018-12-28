@@ -6,7 +6,7 @@
 #' @examples
 #' X<-matrix(rexp(200, rate=.1), ncol=20)
 #' Y<-rnorm(10)
-#' OSLOG(X,Y,a=1)
+#' OSLOG(X,Y,a=1,1)
 
 
 OSLOG<-function(X,Y,a,b){
