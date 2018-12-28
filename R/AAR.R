@@ -23,9 +23,9 @@ AAR<- function(X,Y,a){
       xt<-X[t,]
       pred[t,]<- tcrossprod(crossprod(bt,At),xt) / as.numeric(crossprod(xt,crossprod(At,xt))+1)
       At<- At + tcrossprod(xt,xt)
-      At<- chol2inv(chol(At))
+      InvA<- chol2inv(chol(At))
       bt<- bt + (Y[t,]*xt)
-      theta<-crossprod(At,bt)
+      theta<-crossprod(InvA,bt)
     }
     res<-postResample(pred = pred, obs = Y)
     stats<- as.matrix(res)
