@@ -19,7 +19,7 @@ COIRR<-function(X,Y,a,b=1){
     bt<- matrix(0,ncol=1,nrow=N)
     At<- diag(0,N)
     pred<- matrix(0,nrow=T,ncol=1)
-    theta0<- matrix(b,nrow=1,ncol=N)
+    theta0<- rep(1,N)
     for (t in 1:T){
       xt<-X[t,]
       Dt <- diag(sqrt(abs(c(theta0))))
