@@ -25,11 +25,12 @@ AAR<- function(X,Y,a){
       At<- At + tcrossprod(xt,xt)
       At<- chol2inv(chol(At))
       bt<- bt + (Y[t,]*xt)
+      theta<-crossprod(At,bt)
     }
     res<-postResample(pred = pred, obs = Y)
     stats<- as.matrix(res)
     quant<-quantile(Y-pred,probs=c(.25,.50,.75))
     
-    return(list(predictions=pred,performance=stats,quantiles=quant))
+    return(list(Weights=theta,predictions=pred,performance=stats,quantiles=quant))
   }
 }
