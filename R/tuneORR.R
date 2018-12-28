@@ -23,7 +23,7 @@ tuneORR<-function(from,to,by,Xtrain,Ytrain){
   for(j in 1:length(a)) {
     setTxtProgressBar(pb, j)
     pre<- as.matrix(CR::ORR(Xtrain,Ytrain,a[j])$predictions)
-    res[j] <- sum((pre-trainY)^2)
+    res[j] <- sum((pre-Ytrain)^2)
   }
   close(pb)
   parm<-which.min(res)
