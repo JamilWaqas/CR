@@ -8,8 +8,8 @@
 #' Y<-rnorm(10)
 #' COIRR(X,Y,a=1,1)
 
-COIRR<-function(X,Y,a){
-  if(a|b<=0){
+COIRR<-function(X,Y,a,b=1){
+  if(a<=0){
     print("a must be a positive number")
   }else{
     X<-as.matrix(X)
