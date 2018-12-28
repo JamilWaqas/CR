@@ -6,7 +6,7 @@
 #' @examples
 #' X<-matrix(rexp(200, rate=.1), ncol=20)
 #' Y<-rnorm(10)
-#' ORR(X,Y,a=1)
+#' ORR(X,Y,a)
 
 ORR<- function(X,Y,a){
   if(a<=0){
