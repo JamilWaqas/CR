@@ -20,7 +20,7 @@ OSLOG<-function(X,Y,a,b){
     bt<- matrix(0,ncol=1,nrow=N)
     At<- diag(0,N)
     pred<- matrix(0,nrow=T,ncol=1)
-    theta0<- rep(1,N)
+    theta0<- rep(b,N)
     for (t in 1:T){
       xt<-X[t,]
       pred[t] <- crossprod(as.matrix(theta0), xt)
