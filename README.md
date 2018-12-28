@@ -1,27 +1,27 @@
-##Proto-types Algorithms
+## Proto-type Algorithms
 
-*AAR 
-*ORR 
-*COIRR 
-*OSLOG
+* AAR 
+* ORR 
+* COIRR 
+* OSLOG
 
-##Benchmarks-glmnet
+## Benchmarks-glmnet
 
-*lm  regression
-*L_1 regression
-*L_2 regression
+* lm  regression
+* L1 regression
+* L2 regression
 
-##Grid search tuning 
+## Grid search tuning 
 
-*tuneAAR
-*tuneORR
-*tuneCOIRR
-*tuneOSLOG
+* tuneAAR
+* tuneORR
+* tuneCOIRR
+* tuneOSLOG
 
-##Time-microbenchmark
+## Time-microbenchmark
 
-*time (running time of algorithms are not optimised for performance)
+* time (running time of algorithms are not optimised for performance)
 
-#Example
+# Example
 
 For example ussage of the functions run demo.R by typing ```source("https://raw.githubusercontent.com/JamilWaqas/CR/master/demo.R")``` in R. Also, see ?AAR,?ORR,...
