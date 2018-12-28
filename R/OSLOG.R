@@ -9,8 +9,8 @@
 #' OSLOG(X,Y,a=1)
 
 
-OSLOG<-function(X,Y,a){
-  if(a<=0){
+OSLOG<-function(X,Y,a,b){
+  if(a | b <=0){
     print("a must be a positive number")
   }else{
     X<-as.matrix(X)
