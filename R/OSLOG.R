@@ -10,7 +10,7 @@
 
 
 OSLOG<-function(X,Y,a,b=1){
-  if(a | b <=0){
+  if(a<=0){
     print("a must be a positive number")
   }else{
     X<-as.matrix(X)
