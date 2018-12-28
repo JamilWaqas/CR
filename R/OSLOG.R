@@ -9,7 +9,7 @@
 #' OSLOG(X,Y,a=1,1)
 
 
-OSLOG<-function(X,Y,a,b){
+OSLOG<-function(X,Y,a,b=1){
   if(a | b <=0){
     print("a must be a positive number")
   }else{
