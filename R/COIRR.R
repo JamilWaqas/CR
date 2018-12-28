@@ -30,12 +30,12 @@ COIRR<-function(X,Y,a){
       theta0<- crossprod(AAt,bt) 
       pred[t] <- crossprod(as.matrix(theta0), xt)
       bt <- bt + (Y[t] * xt)
-      theta0 <- crossprod(AAt,bt) 
+      theta0 <- crossprod(AAt,bt)
     }
     res<-postResample(pred = pred, obs = Y)
     stats<- as.matrix(res)
     quant<-quantile(as.matrix(Y)-as.matrix(pred),probs=c(.25,.50,.75))
     
-    return(list(predictions=pred,performance=stats,quantiles=quant))
+    return(list(Weights=theta0,predictions=pred,performance=stats,quantiles=quant))
   }
 }
