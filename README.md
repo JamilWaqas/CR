@@ -5,6 +5,7 @@
 * COIRR 
 * OSLOG
 
+
 ## Benchmarks-glmnet
 
 * lm  regression
@@ -20,7 +21,9 @@
 
 ## Time-microbenchmark
 
-* time (running time of algorithms are not optimised for performance)
+* time 
+
+**Note:-** Algorithms are not optimised for performance. If inverse is taken using ```solve()```, then ORR and AAR quite slower than ORR and AAR. When ```chol2inv(chol())``` is used than they are faster than OSLOG and COIRR. However, COIRR and OSLOG has ability to give sparse solution. Also, there might be room for further optimising multiplication that involve diagonal matrices. Consequently, use of other techniques like Sherman-Morrison might speed up COIRR and OSLOG. 
 
 # Example
 
