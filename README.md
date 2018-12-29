@@ -31,4 +31,4 @@ Open **R** and install the following packages ```microbenchmark, caret, glmnet``
 
 # Example
 
-Type ```source("https://raw.githubusercontent.com/JamilWaqas/CR/master/demo.R")``` in ```R```.
+Type ```source("https://raw.githubusercontent.com/JamilWaqas/CR/master/demo.R")``` in **R**.
