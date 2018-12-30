@@ -70,7 +70,6 @@ print(quant)
 print(benchmarks(Xtest,Ytest)$quantiles)
 
 F16<- F16
-devtools::use_data(F16, F16)
 sample <- 1:floor(.25*nrow(F16))
 train <- as.matrix(F16[sample,])
 test  <- as.matrix(F16[-sample,])
