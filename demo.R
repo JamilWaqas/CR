@@ -64,7 +64,7 @@ print(benchmarks(Xtest,Ytest)$performance)
 
 quant<-rbind(t(CR::ORR(Xtest,Ytest,1e-05)$quantiles),t(CR::AAR(Xtest,Ytest,1e-05)$quantiles),t(CR::OSLOG(Xtest[,-c(5)],Ytest,1e-05)$quantiles),t(CR::COIRR(Xtest[,-c(5)],Ytest,1e-05)$quantiles))
 colnames(quant)<-c("25%","50%","75%")
-ownames(quant)<-c("orr","aar","oslog","coirr")
+rownames(quant)<-c("orr","aar","oslog","coirr")
 print(quant)
 
 print(benchmarks(Xtest,Ytest)$quantiles)
