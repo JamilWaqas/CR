@@ -7,10 +7,10 @@ Ytrain<-as.matrix(train[,11])
 Xtest<- as.matrix(test[,1:10])
 Ytest<- as.matrix(test[,11])
 
-print(AAR(Xtrain,Ytrain,0.1)$Weights)
-print(ORR(Xtrain,Ytrain,0.5)$Weights)
-print(OSLOG(Xtrain,Ytrain,0.5)$Weights)
-print(COIRR(Xtrain,Ytrain,0.5)$Weights)
+#print(AAR(Xtrain,Ytrain,0.1)$Weights)
+#print(ORR(Xtrain,Ytrain,0.5)$Weights)
+#print(OSLOG(Xtrain,Ytrain,0.5)$Weights)
+#print(COIRR(Xtrain,Ytrain,0.5)$Weights)
 
 print(AAR(Xtest,Ytest,0.1)$quantiles)
 print(ORR(Xtest,Ytest,0.5)$quantiles)
@@ -64,15 +64,15 @@ print(benchmarks(Xtest,Ytest)$performance)
 
 quant<-rbind(t(CR::ORR(Xtest,Ytest,1e-05)$quantiles),t(CR::AAR(Xtest,Ytest,1e-05)$quantiles),t(CR::OSLOG(Xtest[,-c(5)],Ytest,1e-05)$quantiles),t(CR::COIRR(Xtest[,-c(5)],Ytest,1e-05)$quantiles))
 colnames(quant)<-c("25%","50%","75%")
-rownames(quant)<-c("orr","aar","oslog","coirr")
+ownames(quant)<-c("orr","aar","oslog","coirr")
 print(quant)
 
 print(benchmarks(Xtest,Ytest)$quantiles)
 
-F16<- F16
-sample <- 1:floor(.25*nrow(F16))
-train <- as.matrix(F16[sample,])
-test  <- as.matrix(F16[-sample,])
+f16<- F16
+sample <- 1:floor(.25*nrow(f16))
+train <- as.matrix(f16[sample,])
+test  <- as.matrix(f16[-sample,])
 Xtrain<- as.matrix(train[,1:40])
 Ytrain<-as.matrix(train[,41])
 Xtest<- as.matrix(test[,1:40])
