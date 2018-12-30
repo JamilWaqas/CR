@@ -49,10 +49,10 @@ Ytest <- as.matrix(test[,3])
 #tuningOSLOG<-tuneOSLOG(0.00000001,0.00001,0.000000001,Xtrain,Ytrain)
 #tuningAAR<-tuneAAR(0.00000001,0.00001,0.000000001,Xtrain,Ytrain)
 
-print(AAR(Xtrain,Ytrain,tuningAAR$optimum)$Weights)
-print(ORR(Xtrain,Ytrain,tuningORR$optimum)$Weights)
-print(OSLOG(Xtrain,Ytrain,tuningOSLOG$optimum)$Weights)
-print(COIRR(Xtrain,Ytrain,tuningORR$optimum)$Weights)
+#print(AAR(Xtrain,Ytrain,tuningAAR$optimum)$Weights)
+#print(ORR(Xtrain,Ytrain,tuningORR$optimum)$Weights)
+#print(OSLOG(Xtrain,Ytrain,tuningOSLOG$optimum)$Weights)
+#print(COIRR(Xtrain,Ytrain,tuningORR$optimum)$Weights)
 
 
 perfISE<-rbind(t(CR::ORR(Xtest,Ytest,1e-05)$performance),t(CR::AAR(Xtest,Ytest,1e-05)$performance),t(CR::OSLOG(Xtest[,-c(5)],Ytest,1e-05)$performance),t(CR::COIRR(Xtest[,-c(5)],Ytest,1e-05)$performance))
