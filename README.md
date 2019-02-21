@@ -27,7 +27,7 @@
 
 # Instructions
 
-Open **R** and install the following packages ```microbenchmark, caret, glmnet``` and ```devtools``` by typing ```install.packages("pkg.name")``` followed by ```library(pkg.name)```. Then type ```inatall.gthub("Jamil/CR")```
+Open **R** and install the following packages ```microbenchmark, caret, glmnet``` and ```devtools``` by typing ```install.packages("pkg.name")``` followed by ```library(pkg.name)```. Then type ```inatall_gthub("Jamil/CR")```
 
 # Example
 
