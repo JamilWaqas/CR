@@ -23,7 +23,7 @@
 
 * time 
 
-**Note:-** Algorithms are not optimised for performance. If inverse is taken using ```solve()```, then ORR and AAR are quite slower than ORR and AAR. When ```chol2inv(chol())``` is used than they are faster than OSLOG and COIRR. However, COIRR and OSLOG has ability to give sparse solution. Also, there might be room for further optimising multiplication that involve diagonal matrices. Other techniques like Sherman-Morrison can also be used. Also, the current implementations are just proto-types, which possibly also effect the computationally efficiency. These aspect are still work in progress, so please feel to improve the current implementations.
+**Note:-** Algorithms are not optimised for performance. If inverse is taken using ```solve()```, then ORR and AAR are quite slower than COIRR and OSLOG. When ```chol2inv(chol())``` is used than they are faster than OSLOG and COIRR. However, COIRR and OSLOG has ability to give sparse solution. Also, there might be room for further optimising multiplication that involve diagonal matrices. Other techniques like Sherman-Morrison can also be used. The current implementations are just proto-types, which possibly also effect the computationally efficiency. These aspect are still work in progress, so please feel to improve the current implementations.
 
 # Instructions
 
